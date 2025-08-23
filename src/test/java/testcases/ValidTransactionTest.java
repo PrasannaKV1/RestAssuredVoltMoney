@@ -10,10 +10,10 @@ public class ValidTransactionTest extends BaseTest {
 
     @Test
     public void testValidTransaction() {
-        // ✅ Get dynamic API key from Authutil
+        //  dynamic API key from Authutil class
         String apiKey = Authutil.getApiKey();
 
-        // Step 1: Create From Account
+        // Create From Account
         String fromAccountBody = "{ \"owner\": \"Alice\", \"balance\": 500, \"currency\": \"COSMIC_COINS\" }";
 
         Response fromRes = RestAssured.given()
@@ -29,7 +29,7 @@ public class ValidTransactionTest extends BaseTest {
         Assert.assertEquals(fromRes.statusCode(), 200, "FromAccount creation failed");
         Integer fromAccountId = fromRes.jsonPath().getInt("account.id");
 
-        // Step 2: Create To Account
+        // Create To Account
         String toAccountBody = "{ \"owner\": \"Bob\", \"balance\": 200, \"currency\": \"COSMIC_COINS\" }";
 
         Response toRes = RestAssured.given()
@@ -45,7 +45,7 @@ public class ValidTransactionTest extends BaseTest {
         Assert.assertEquals(toRes.statusCode(), 200, "ToAccount creation failed");
         Integer toAccountId = toRes.jsonPath().getInt("account.id");
 
-        // Step 3: Perform Transaction
+        // Perform Transaction
         String txBody = "{ " +
                 "\"fromAccountId\": " + fromAccountId + ", " +
                 "\"toAccountId\": " + toAccountId + ", " +

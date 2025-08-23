@@ -10,10 +10,10 @@ public class InvalidTransactionTest extends BaseTest {
 
     @Test
     public void testInvalidTransaction() {
-        // ✅ Step 1: Get dynamic API key
+        // Get dynamic API key
         String apiKey = Authutil.getApiKey();
 
-        // ✅ Step 2: Invalid request payload (negative amount)
+        //  Invalid request payload (negative amount)
         String requestBody = "{ " +
                 "\"fromAccountId\": 1, " +
                 "\"toAccountId\": 2, " +
@@ -21,7 +21,7 @@ public class InvalidTransactionTest extends BaseTest {
                 "\"currency\": \"COSMIC_COINS\" " +
                 "}";
 
-        // ✅ Step 3: Perform transaction request with invalid payload
+        //  Perform transaction request with invalid payload
         Response response = RestAssured.given()
                 .header("Content-Type", "application/json")
                 .header("api-key", apiKey) // pass API key
@@ -33,7 +33,7 @@ public class InvalidTransactionTest extends BaseTest {
 
         System.out.println("Invalid Transaction Response: " + response.asPrettyString());
 
-        // ✅ Step 4: Assertions
+        //  Assertions
         Assert.assertEquals(response.getStatusCode(), 400, "Expected 400 Bad Request!");
         Assert.assertNotNull(response.jsonPath().get("message"), "Error message should be present for invalid request");
     }
