@@ -31,6 +31,27 @@
 <img width="702" height="617" alt="image" src="https://github.com/user-attachments/assets/f79f1292-8138-4d19-bc56-b82e41ea3721" />
 
 
+# git commands used first time
+1] git intit 
+2] git add .
+3] git commit -m "commit message"
+4] git remote add origin https://github.com/PrasannaKV1/RestAssuredVoltMoney
+5] git push origin master
+
+# git command secondtime onwards
+1] git add .
+2] git commit -m " commit message"
+3] git push origin master
+
+
+
+# Note : i have used only one master branch 
+
+
+# to run testcases ->create project in your system -> clone the repository 
+
+
+
 
 
 
