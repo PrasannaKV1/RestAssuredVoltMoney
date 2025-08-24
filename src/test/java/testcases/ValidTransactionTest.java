@@ -18,7 +18,7 @@ public class ValidTransactionTest extends BaseTest {
 
         Response fromRes = RestAssured.given()
                 .header("Content-Type", "application/json")
-                .header("api-key", apiKey)   // 👈 now key is passed here
+                .header("api-key", apiKey)
                 .body(fromAccountBody)
                 .when()
                 .post("/accounts")
